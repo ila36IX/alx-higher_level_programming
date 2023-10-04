@@ -1,4 +1,5 @@
 #include "lists.h"
+#include <stdio.h>
 
 /**
  * insert_node - inserts a number into a sorted singly linked list
@@ -22,6 +23,12 @@ listint_t *insert_node(listint_t **head, int number)
 	{
 		*head = new_node;
 		return (*head);
+	}
+	if (number <= (*head)->n)
+	{
+		new_node->next = *head;
+		*head = new_node;
+		return (new_node);
 	}
 	current = *head;
 

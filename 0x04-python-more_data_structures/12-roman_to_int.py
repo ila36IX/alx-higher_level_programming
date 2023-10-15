@@ -2,7 +2,7 @@
 
 
 def roman_to_int(roman_string):
-    if (type(roman_string) != str || roman_string == None):
+    if (type(roman_string) != str and roman_string == None):
         return (0)
     equiled_digit = 0
     units = {

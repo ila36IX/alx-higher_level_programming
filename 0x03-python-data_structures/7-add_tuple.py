@@ -17,6 +17,3 @@ def add_tuple(tuple_a=(), tuple_b=()):
         return tuple_a
     if (a, b) == (0, 0):
         return (0, 0)
-tuplea = (1, 2)
-tupleb = (1, 2, 3)
-print(add_tuple(tuplea, tupleb))

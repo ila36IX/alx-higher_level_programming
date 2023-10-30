@@ -1,0 +1,48 @@
+Test the add_integer function
+=============================
+
+Usage: add_integer Function
+---------------------------
+
+Function that adds 2 integers
+
+Importing function from Module
+	>>> add = __import__("0-add_integer").add_integer
+
+Positive arguments:
+	>>> add(5, 9)
+	14
+	>>> add(36, 9)
+	45
+	>>> add(3, 69)
+	72
+	>>> add(369, 1)
+	370
+
+Negative arguments:
+	>>> add(-3, -9)
+	-12
+	>>> add(-69, 66)
+	-3
+	>>> add(-6, -3)
+	-9
+
+Negative and positive arguments:
+	>>> add(-69, 3)
+	-66
+	>>> add(-66, 6)
+	-60
+
+Floating numbers:
+	>>> add(-6.9, -3.6)
+	-9
+	>>> add(-2)
+	96
+
+Non digits arguments:
+	>>> add("H", 15)
+	Traceback (most recent call last):
+	...
+    	TypeError: a must be an integer
+	
+

@@ -1,0 +1,40 @@
+Test the text_indentation function:
+===================================
+
+Import the function from module:
+	>>> text = __import__('5-text_indentation').text_indentation
+
+Normal cases:
+	>>> text("ali.")
+	ali.
+	<BLANKLINE>
+	>>> text("hi.hello?")
+	hi.
+	<BLANKLINE>
+	hello?
+	<BLANKLINE>
+	>>> text("")
+	>>> text("test_blank")
+	test_blank
+	>>> text(".?:")
+	.
+	<BLANKLINE>
+	?
+	<BLANKLINE>
+	:
+	<BLANKLINE>
+	>>> text("??")
+	?
+	<BLANKLINE>
+	?
+	<BLANKLINE>
+	>>> text("How dear you?     Yes!")
+	How dear you?
+	<BLANKLINE>
+	Yes!
+
+Error cases:
+	>>> text(69)
+	Traceback (most recent call last):
+	...
+	TypeError: text must be a string

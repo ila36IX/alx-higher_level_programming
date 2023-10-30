@@ -1,0 +1,36 @@
+Test the say_my_name function
+=============================
+
+Usage: say_my_name Function
+---------------------------
+
+Function that prints fullname
+
+Importing function from Module
+	>>> name = __import__("3-say_my_name").say_my_name
+
+Normal name:
+	>>> name("ali", "alien")
+	My name is ali alien
+	>>> name("walter", "white")
+	My name is walter white
+	>>> name("", "")
+	My name is  
+	>>> name("Ali")
+	My name is Ali 
+	 
+Non-string arguments:
+	>>> name(69, "Thirty")
+	Traceback (most recent call last):
+	...
+	TypeError: first_name must be a string
+	>>> name("Sixty", 39)
+	Traceback (most recent call last):
+	...
+	TypeError: last_name must be a string
+	>>> name(3, 9)
+	Traceback (most recent call last):
+	...
+	TypeError: first_name must be a string
+
+

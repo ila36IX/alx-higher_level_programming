@@ -1,0 +1,42 @@
+Tast the function print_square
+==============================
+
+Usage: print_square(size)
+-------------------------
+
+Imprting the function from module:
+	>>> square = __import__('4-print_square').print_square
+
+Usuale cases:
+	>>> square(4)
+	####
+	####
+	####
+	####
+	>>> square(0)
+	>>> square(10)
+	##########
+	##########
+	##########
+	##########
+	##########
+	##########
+	##########
+	##########
+	##########
+	##########
+	>>> square(2)
+	##
+	##
+	>>> square(1)
+	#
+
+Erros cases:
+	>>> square("63")
+	Traceback (most recent call last):
+	...
+	TypeError: size must be an integer
+	>>> square(-69)
+	Traceback (most recent call last):
+	...
+	ValueError: size must be >= 0

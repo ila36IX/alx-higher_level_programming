@@ -37,7 +37,6 @@ class Rectangle():
             raise TypeError("width must be an integer")
         if wid < 0:
             raise ValueError("width must be >= 0")
-
         self.__width = wid
 
     @height.setter
@@ -46,28 +45,4 @@ class Rectangle():
             raise TypeError("height must be an integer")
         if hei < 0:
             raise TypeError("height must be >= 0")
-
         self.__height = hei
-
-    def area(self):
-        return self.__height * self.__width
-
-    def perimeter(self):
-        if self.__width and self.__height:
-            return self.__width * 2 + self.__height * 2
-        else:
-            return 0
-
-    def __str__(self):
-        if self.__height and self.__width:
-            li = ["#"*self.__width for i in range(0, self.__height)]
-            return "\n".join(li)
-        else:
-            return ""
-
-    def __repr__(self):
-        if self.__height and self.__width:
-            li = ["#"*self.__width for i in range(0, self.__height)]
-            return "\n".join(li)
-        else:
-            return ""

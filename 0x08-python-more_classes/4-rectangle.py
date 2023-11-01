@@ -64,3 +64,6 @@ class Rectangle():
             return "\n".join(li)
         else:
             return ""
+
+    def __repr__(self):
+        return "Rectangle({:d}, {:d})".format(self.__width, self.__height)

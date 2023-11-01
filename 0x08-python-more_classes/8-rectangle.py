@@ -52,7 +52,7 @@ class Rectangle():
             raise TypeError("height must be >= 0")
 
         self.__height = hei
-    
+
     def area(self):
         return self.__height * self.__width
 

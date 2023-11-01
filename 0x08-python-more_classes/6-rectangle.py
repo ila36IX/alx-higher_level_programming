@@ -61,7 +61,6 @@ class Rectangle():
         else:
             return 0
 
-
     def __str__(self):
         if self.__height and self.__width:
             li = ["#"*self.__width for i in range(0, self.__height)]

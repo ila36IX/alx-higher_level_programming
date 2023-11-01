@@ -46,3 +46,12 @@ class Rectangle():
         if hei < 0:
             raise TypeError("height must be >= 0")
         self.__height = hei
+
+    def area(self):
+        return self.__height * self.__width
+
+    def perimeter(self):
+        if self.__width and self.__height:
+            return self.__width * 2 + self.__height * 2
+        else:
+            return 0

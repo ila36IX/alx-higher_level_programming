@@ -18,7 +18,7 @@ class Base():
 
     def __init__(self, id=None):
         """Constructor"""
-        if id:
+        if id is not None:
             self.id = id
         else:
             self.id = Base.inc_id()

@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 from models.base import Base
 import unittest
 
@@ -35,7 +36,7 @@ class Test_base(unittest.TestCase):
         self.assertAlmostEqual(base5.id, 5)
 
 
-    def test_2(self):
+    def test_3(self):
         """Test in case id is None again"""
         base1 = Base()
         base2 = Base()

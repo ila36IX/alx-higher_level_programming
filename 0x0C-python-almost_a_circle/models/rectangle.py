@@ -1,11 +1,11 @@
 #!/usr/bin/python3
-from base import Base
+from models.base import Base
+
 """
 
 Rectangle class
 
 """
-
 
 class Rectangle(Base):
     """
@@ -31,34 +31,54 @@ class Rectangle(Base):
         return self.__width
     @width.setter
     def width(self, value):
-        self.__width = value
+        if isinstance(value, int):
+            if value <= 0:
+                raise ValueError("width must be > 0")
+            self.__width = value
+        else:
+            raise TypeError("width must be an integer")
     @property
     def height(self):
         """The height property."""
         return self.__height
     @height.setter
     def height(self, value):
-        self.__height = value
+        if isinstance(value, int):
+            if value <= 0:
+                raise ValueError("height must be > 0")
+            self.__height = value
+        else:
+            raise TypeError("height must be an integer")
     @property
     def x(self):
         """The x property."""
         return self.__x
     @x.setter
     def x(self, value):
-        self.__x = value
+        if isinstance(value, int):
+            if value < 0:
+                raise ValueError("x must be >= 0")
+            self.__x = value
+        else:
+            raise TypeError("x must be an integer")
     @property
     def y(self):
         """The y property."""
         return self.__y
     @y.setter
     def y(self, value):
-        self.__y = value
+        if isinstance(value, int):
+            if value < 0:
+                raise ValueError("y must be >= 0")
+            self.__y = value
+        else:
+            raise TypeError("y must be an integer")
 
-r1 = Rectangle(10, 2)
-print(r1.id)
+    def area(self):
+        """the area value of the Rectangle instance"""
+        return self.__width * self.__height
 
-r2 = Rectangle(2, 10)
-print(r2.id)
+    def def display(self):
+        printed = "\n".join("#"*self.__width for i in range(self.__height)])
+        print(printed)
 
-r3 = Rectangle(10, 2, 0, 0, 12)
-print(r3.id)

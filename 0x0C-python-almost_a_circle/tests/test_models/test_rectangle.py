@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 import unittest
-from models.rectangle import Rectangle
+from models.rectangle import Rectangle 
 
 """
 
@@ -78,3 +78,73 @@ class Test_rectangle(unittest.TestCase):
         self.assertEqual(R.area(), 16)
         R = Rectangle(8, 8)
         self.assertEqual(R.area(), 64)
+
+class Test_rectangle2(unittest.TestCase):
+    """
+
+    New tests
+
+    """
+
+    @classmethod
+    def setUpClass(self):
+        """Reset the Rectangle id"""
+        Rectangle.reset()
+
+    def setUp(self):
+        """Setup units to test with"""
+        self.R1 = Rectangle(1, 1)
+        self.R2 = Rectangle(2, 2, 3, 3, 5)
+        self.R3 = Rectangle(4, 2, 4, 3)
+        self.R4 = Rectangle(4, 2, 1, 0)
+
+    def tearDown(self):
+        """Delete the units"""
+        del self.R1
+        del self.R2
+        del self.R3
+        Rectangle.reset()
+    
+    def test_1(self):
+        """Test __str__"""
+        self.R1_str = "[Rectangle] (<1>) <0>/<0> - <1>/<1>" 
+        self.R2_str = "[Rectangle] (<5>) <3>/<3> - <2>/<2>" 
+        self.R3_str = "[Rectangle] (<2>) <4>/<3> - <4>/<2>" 
+        self.assertMultiLineEqual(self.R1.__str__(), self.R1_str)
+        self.assertMultiLineEqual(self.R2.__str__(), self.R2_str)
+        self.assertMultiLineEqual(self.R3.__str__(), self.R3_str)
+
+    def test_2(self):
+        """update method"""
+        self.R1.update(1, 2, 3, 4, 5)
+        self.R2.update(3, 6, 9, 36, 69)
+        """R1 test"""
+        self.assertEqual(self.R1.id, 1)
+        self.assertEqual(self.R1.width, 2)
+        self.assertEqual(self.R1.height, 3)
+        self.assertEqual(self.R1.x, 4)
+        self.assertEqual(self.R1.y, 5)
+        """R2 test"""
+        self.assertEqual(self.R2.id, 3)
+        self.assertEqual(self.R2.width, 6)
+        self.assertEqual(self.R2.height, 9)
+        self.assertEqual(self.R2.x, 36)
+        self.assertEqual(self.R2.y, 69)
+
+    def test_3(self):
+        """R1 with kwargs"""
+        # self.R2 = Rectangle(2, 2, 3, 3, 5)
+        self.R2.update(width=6, x=15)
+        self.assertEqual(self.R2.id, 5)
+        self.assertEqual(self.R2.width, 6)
+        self.assertEqual(self.R2.height, 2)
+        self.assertEqual(self.R2.x, 15)
+        self.assertEqual(self.R2.y, 3)
+        """MIx between args and kwargs"""
+        self.R1.update(1, 2, 3, 4, 5, width= 1000, id=69)
+        self.assertEqual(self.R1.width, 2)
+        self.assertEqual(self.R1.id, 1)
+
+    def test_4(self):
+        tuple1 = {"width":2, "height":2, "x":3, "y":3, "id":5}
+        self.assertDictEqual(self.R2.to_dictionary(), tuple1)

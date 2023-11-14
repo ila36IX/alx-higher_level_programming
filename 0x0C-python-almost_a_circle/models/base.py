@@ -28,3 +28,7 @@ class Base():
         """Increament nb_object"""
         cls.__nb_objects += 1
         return cls.__nb_objects
+    
+    @classmethod
+    def reset(cls):
+        cls.__nb_objects = 0

@@ -59,16 +59,13 @@ class Base():
     @classmethod
     def save_to_file(cls, list_objs):
         """write to json file"""
-        junk_l = [type(obj).__name__ == "Rectangle" for obj in list_objs]
-        all_rectangles = all(junk_l)
-        all_squares = all(type(obj).__name__ == "Square" for obj in list_objs)
-        if all_squares:
-            with open("Square.json", "w") as f:
-                f.write(cls.to_json_string(list_objs))
+        if list_objs is None:
+            with open(cls.__name__+".json", "w") as f:
+                f.write("")
+            pass
 
-        if all_rectangles:
-            with open("Rectangle.json", "w") as f:
-                f.write(cls.to_json_string(list_objs))
+        with open(cls.__name__+"json", "w") as f:
+            f.write(cls.to_json_string(list_objs))
 
     @staticmethod
     def from_json_string(json_string):

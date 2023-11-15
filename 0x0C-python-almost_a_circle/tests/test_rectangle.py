@@ -187,5 +187,13 @@ class Test_rectangle2(unittest.TestCase):
         self.assertEqual(junk.x, 3)
         junk = Rectangle.create(**{ 'id': 89, 'width': 1, 'height': 2, 'x': 3, 'y': 4 })
         self.assertEqual(junk.y, 4) 
-        
-
+    
+    def test_7(self):
+        """Test writing to csv file"""
+        Rectangle.save_to_file_csv([self.R1, self.R2, self.R4]) 
+    
+    def test_8(self):
+        """Read from csv file"""
+        lll = Rectangle.load_from_file_csv()
+        for l in lll:
+            print(l)

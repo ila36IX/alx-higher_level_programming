@@ -7,6 +7,7 @@ Manage id attribute in all your future classes
 
 """
 import json
+import csv
 
 
 class Base():
@@ -99,3 +100,47 @@ class Base():
                 return list_obj
         except FileNotFoundError:
             return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """serializes to csv file"""
+        f_name = cls.__name__+".csv"
+        with open(f_name, "w") as f:
+            w = csv.writer(f)
+            for obj in list_objs:
+                if type(obj).__name__ == "Rectangle":
+                    lst = [obj.id, obj.width, obj.height, obj.x, obj.y]
+                elif type(obj).__name__ == "Square":
+                    lst = [obj.id, obj.size, obj.x, obj.y]
+                else:
+                    raise TypeError("Must be list of \
+rectangle/square instances")
+                w.writerow(lst)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """deserializes in CSV"""
+        f_name = cls.__name__+".csv"
+
+        with open(f_name, "r") as f:
+            readed_lists = csv.reader(f)
+            obj_list = []
+
+            for lst in readed_lists:
+                dict_junk = {}
+
+                if cls.__name__ == "Rectangle":
+                    dict_junk["id"] = lst[0]
+                    dict_junk["width"] = lst[1]
+                    dict_junk["height"] = lst[2]
+                    dict_junk["x"] = lst[3]
+                    dict_junk["y"] = lst[4]
+
+                elif cls.__name__ == "Square":
+                    dict_junk["id"] = lst[0]
+                    dict_junk["size"] = lst[1]
+                    dict_junk["x"] = lst[2]
+                    dict_junk["y"] = lst[3]
+                obj_list.append(cls.create(**dict_junk))
+
+        return obj_list

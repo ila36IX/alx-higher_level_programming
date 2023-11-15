@@ -103,3 +103,8 @@ class TestSquare(unittest.TestCase):
         ]
         string = Square.to_json_string(list_sqrs)
         self.assertEqual(Square.from_json_string(string), list_sqrs_exp)
+
+    def test_8(self):
+        """Test the write to csv function"""
+        Square.save_to_file_csv([self.sqr1, self.sqr2, self.sqr3]) 
+        

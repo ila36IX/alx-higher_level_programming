@@ -51,6 +51,8 @@ class Test_rectangle(unittest.TestCase):
             rec = Rectangle(5, 3, 3, -5)
         with self.assertRaises(ValueError):
             rec = Rectangle(5, -3, -3, 5)
+        with self.assertRaises(ValueError):
+            rec = Rectangle(1, 2, -3)
 
     def test_6(self):
         """Zero cases"""
@@ -167,3 +169,23 @@ class Test_rectangle2(unittest.TestCase):
         self.R4 = Rectangle(4, 2, 1, 0)
         rect_list = [self.R1, self.R2, self.R3, self.R4]
         Rectangle.save_to_file(rect_list)
+
+    def test_6(self):
+        junk = Rectangle.create(**{ 'id': 89 })
+        self.assertEqual(junk.id, 89)
+        junk = Rectangle.create(**{ 'id': 89, 'width': 1 })
+        self.assertEqual(junk.id, 89)
+        self.assertEqual(junk.width, 1)
+        junk = Rectangle.create(**{ 'id': 89, 'width': 1, 'height': 2 })
+        self.assertEqual(junk.id, 89)
+        self.assertEqual(junk.width, 1)
+        self.assertEqual(junk.height, 2)
+        junk = Rectangle.create(**{ 'id': 89, 'width': 1, 'height': 2, 'x': 3 })
+        self.assertEqual(junk.id, 89)
+        self.assertEqual(junk.width, 1)
+        self.assertEqual(junk.height, 2)
+        self.assertEqual(junk.x, 3)
+        junk = Rectangle.create(**{ 'id': 89, 'width': 1, 'height': 2, 'x': 3, 'y': 4 })
+        self.assertEqual(junk.y, 4) 
+        
+

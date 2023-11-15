@@ -71,6 +71,8 @@ class Base():
     @staticmethod
     def from_json_string(json_string):
         """Deserialize"""
+        if json_string is None:
+            return []
         args_list = json.loads(json_string)
         return args_list
 

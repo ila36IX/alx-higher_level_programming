@@ -167,3 +167,12 @@ class Test_rectangle2(unittest.TestCase):
         self.R4 = Rectangle(4, 2, 1, 0)
         rect_list = [self.R1, self.R2, self.R3, self.R4]
         Rectangle.save_to_file(rect_list)
+
+    def test_5(self):
+        r1 = Rectangle(10, 7, 2, 8)
+        dictionary = r1.to_dictionary()
+        json_dictionary = Rectangle.to_json_string([dictionary])
+        print(dictionary)
+        print(type(dictionary))
+        print(json_dictionary)
+        print(type(json_dictionary))

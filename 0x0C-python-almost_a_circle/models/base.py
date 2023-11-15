@@ -59,12 +59,13 @@ class Base():
     @classmethod
     def save_to_file(cls, list_objs):
         """write to json file"""
+        file_name = cls.__name__+".json"
         if list_objs is None:
-            with open(cls.__name__+".json", "w") as f:
-                f.write("")
+            with open(file_name, "w") as f:
+                f.write("[]")
             pass
 
-        with open(cls.__name__+"json", "w") as f:
+        with open(file_name, "w") as f:
             f.write(cls.to_json_string(list_objs))
 
     @staticmethod

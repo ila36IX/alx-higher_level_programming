@@ -83,7 +83,7 @@ class Base():
         dummy.x = 0
         dummy.update(**dictionary)
         return dummy
-    
+
     @classmethod
     def load_from_file(cls):
         """Create list of classes from json file"""
@@ -95,7 +95,7 @@ class Base():
                 list_obj = []
                 for obj in list_dict:
                     list_obj.append(cls.create(**obj))
-                    
+
                 return list_obj
         except FileNotFoundError:
             return []

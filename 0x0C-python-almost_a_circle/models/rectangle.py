@@ -135,6 +135,9 @@ class Rectangle(Base):
         dict_rect["y"] = self.y
         return dict_rect
 
+    def __dict__(self):
+        return self.to_dictionary()
+
     @staticmethod
     def reset():
         """Reset the id attrebute to be 0"""

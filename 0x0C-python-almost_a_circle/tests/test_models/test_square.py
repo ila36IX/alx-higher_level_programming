@@ -79,4 +79,19 @@ class TestSquare(unittest.TestCase):
         # self.sqr1 = Square(3, 2, 3, 69)
         typle1 = {"size": 3, "x":2, "y":3, "id": 69}
         self.assertDictEqual(self.sqr1.to_dictionary(), typle1)
+    
+    def test_7(self):
+        """test object to string method"""
+        str_sqr1 = '[{"id": 69, "size": 3, "x": 2, "y": 3}, \
+{"id": 369, "size": 6, "x": 0, "y": 0}, {"ali": 2}]'
+        sqrs_list = [self.sqr1, self.sqr2, {"ali":2}] 
+        self.assertEqual(Square.to_json_string(sqrs_list), str_sqr1)
 
+    def test_7(self):
+        """test save to json mehtod"""
+        # self.sqr1 = Square(3, 2, 3, 69)
+        # self.sqr2 = Square(6, id=369)
+        # self.sqr3 = Square(6, 3, 3)
+        # self.sqr4 = Square(3, 6, 6)
+        sqr_list = [self.sqr1, self.sqr2, self.sqr3, self.sqr4]
+        Square.save_to_file(sqr_list)

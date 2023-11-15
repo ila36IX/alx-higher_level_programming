@@ -146,5 +146,14 @@ class Test_rectangle2(unittest.TestCase):
         self.assertEqual(self.R1.id, 1)
 
     def test_4(self):
+        """Test the to_dictionary method"""
         tuple1 = {"width":2, "height":2, "x":3, "y":3, "id":5}
         self.assertDictEqual(self.R2.to_dictionary(), tuple1)
+
+    def test_5(self):
+        self.R1 = Rectangle(1, 1)
+        self.R2 = Rectangle(2, 2, 3, 3, 5)
+        self.R3 = Rectangle(4, 2, 4, 3)
+        self.R4 = Rectangle(4, 2, 1, 0)
+        rect_list = [self.R1, self.R2, self.R3, self.R4]
+        Rectangle.save_to_file(rect_list)

@@ -57,3 +57,7 @@ class Square(Rectangle):
         dict_rect["x"] = self.x
         dict_rect["y"] = self.y
         return dict_rect
+    
+    def __dict__(self):
+        """in case of using dict"""
+        return self.to_dictionary()

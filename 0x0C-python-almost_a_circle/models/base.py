@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+import json
+
 """
 
 Manage id attribute in all your future classes
@@ -28,7 +30,42 @@ class Base():
         """Increament nb_object"""
         cls.__nb_objects += 1
         return cls.__nb_objects
-    
+
     @classmethod
     def reset(cls):
+        """Reset the nb_object varaible"""
         cls.__nb_objects = 0
+
+    @staticmethod
+    def to_json_string(list_dictionaries):
+        """Convert class object to string"""
+
+        if list_dictionaries is None or not len(list_dictionaries):
+            return "[]"
+
+        dic_list = []
+        for obj in list_dictionaries:
+            if type(obj).__name__ == "Rectangle":
+                dic_list.append(obj.to_dictionary())
+            elif type(obj).__name__ == "Square":
+                dic_list.append(obj.to_dictionary())
+            elif isinstance(obj, dict):
+                dic_list.append(obj)
+            else:
+                raise TypeError("Must be a list of dicts")
+
+        return json.dumps(dic_list)
+    
+    @classmethod
+    def save_to_file(cls, list_objs):
+        """write to json file"""
+        all_rectangles = all(type(obj).__name__ == "Rectangle" for obj in list_objs) 
+        all_squares = all(type(obj).__name__ == "Square" for obj in list_objs)
+        if all_squares:
+            with open("Square.json", "w") as f:
+                f.write(cls.to_json_string(list_objs))
+
+        if all_rectangles:
+            with open("Rectangle.json", "w") as f:
+                f.write(cls.to_json_string(list_objs))
+

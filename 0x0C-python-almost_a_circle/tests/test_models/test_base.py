@@ -48,3 +48,10 @@ class Test_base(unittest.TestCase):
         self.assertAlmostEqual(base3.id, 8)
         self.assertAlmostEqual(base4.id, 9)
         self.assertAlmostEqual(base5.id, 10)
+
+    def test_4(self):
+        """Test to_json_string method"""
+        json_str = Base.to_json_string([{"key1": 1, "key2":2}, {"key1": 1, "key2":2}])
+        self.assertEqual(json_str, '[{"key1": 1, "key2": 2}, {"key1": 1, "key2": 2}]')
+        json_str = Base.to_json_string([])
+        self.assertEqual(json_str, "[]")

@@ -119,6 +119,12 @@ class Test_rectangle2(unittest.TestCase):
         self.assertMultiLineEqual(self.R3.__str__(), self.R3_str)
 
     def test_2(self):
+        # self.R1 = Rectangle(1, 1)
+        # self.R2 = Rectangle(2, 2, 3, 3, 5)
+        # self.R3 = Rectangle(4, 2, 4, 3)
+        # self.R4 = Rectangle(4, 2, 1, 0)
+        self.R3.update(666)
+        self.assertEqual(self.R3.id, 666)
         """update method"""
         self.R1.update(1, 2, 3, 4, 5)
         self.R2.update(3, 6, 9, 36, 69)

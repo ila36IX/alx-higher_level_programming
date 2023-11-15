@@ -113,11 +113,14 @@ class Rectangle(Base):
         """Assigns new value to each attribute"""
 
         if len(args):
-            self.id = args[0]
-            self.__width = args[1]
-            self.__height = args[2]
-            self.__x = args[3]
-            self.__y = args[4]
+            try:
+                self.id = args[0]
+                self.__width = args[1]
+                self.__height = args[2]
+                self.__x = args[3]
+                self.__y = args[4]
+            except IndexError:
+                pass
         else:
             self.id = kwargs.get("id", self.id)
             self.__width = kwargs.get("width", self.__width)

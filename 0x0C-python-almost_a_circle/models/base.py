@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-import json
 
 """
 
@@ -7,6 +6,7 @@ Manage id attribute in all your future classes
 
 
 """
+import json
 
 
 class Base():

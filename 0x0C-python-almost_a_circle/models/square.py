@@ -1,11 +1,11 @@
 #!/usr/bin/python3
-from models.rectangle import Rectangle
-
 """
 
 Create the square class
 
 """
+
+from models.rectangle import Rectangle
 
 
 class Square(Rectangle):

@@ -69,3 +69,16 @@ class Base():
             with open("Rectangle.json", "w") as f:
                 f.write(cls.to_json_string(list_objs))
 
+    @staticmethod
+    def from_json_string(json_string):
+        """Deserialize"""
+
+        args_list = json.loads(json_string)
+        return args_list
+
+    @classmethod
+    def create(cls, **dictionary):
+        dummy = cls(69, 5, 3, 6, 9)
+        dummy.update(**dictionary)
+        return dummy
+

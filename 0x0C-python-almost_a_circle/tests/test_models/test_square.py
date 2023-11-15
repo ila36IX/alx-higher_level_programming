@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+# usr/usr/bin/python3
 from models.square import Square
 import unittest
 
@@ -89,9 +89,22 @@ class TestSquare(unittest.TestCase):
 
     def test_7(self):
         """test save to json mehtod"""
+
+        sqr_list = [self.sqr1, self.sqr2, self.sqr3, self.sqr4]
+        Square.save_to_file(sqr_list)
+    
+    def test_8(self):
+        """Deserialize string to list"""
+        
         # self.sqr1 = Square(3, 2, 3, 69)
         # self.sqr2 = Square(6, id=369)
         # self.sqr3 = Square(6, 3, 3)
         # self.sqr4 = Square(3, 6, 6)
-        sqr_list = [self.sqr1, self.sqr2, self.sqr3, self.sqr4]
-        Square.save_to_file(sqr_list)
+        list_sqrs = [self.sqr1, self.sqr2]
+        list_sqrs_exp = [
+            {"size": 3, "x":2, "y":3, "id":69},
+            {"size":6, "x":0, "y":0,"id": 369, }
+        ]
+        string = Square.to_json_string(list_sqrs)
+        self.assertEqual(Square.from_json_string(string), list_sqrs_exp)
+        

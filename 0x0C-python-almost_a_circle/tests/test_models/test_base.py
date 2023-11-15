@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 from models.base import Base
+from models.rectangle import Rectangle
 import unittest
 
 class Test_base(unittest.TestCase):
@@ -55,3 +56,8 @@ class Test_base(unittest.TestCase):
         self.assertEqual(json_str, '[{"key1": 1, "key2": 2}, {"key1": 1, "key2": 2}]')
         json_str = Base.to_json_string([])
         self.assertEqual(json_str, "[]")
+
+    def test_5(self):
+        """Test the create base method"""
+        dict_units = {"width":6, "x": 9, "y": 3, "id":69}
+        Rectangle.create(**dict_units)

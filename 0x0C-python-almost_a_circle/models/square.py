@@ -7,23 +7,24 @@ Create the square class
 
 """
 
+
 class Square(Rectangle):
     """
-    
+
     Square is class the inerits from Rectange
 
     """
-   
+
     def __init__(self, size, x=0, y=0, id=None):
+        """The constructors"""
         super().__init__(size, size, x, y, id)
-    
 
     def __str__(self):
         """Reader friendly string"""
 
         format_tpl = (self.id, self.x, self.y, self.width)
         return "[Square] (<{}>) <{}>/<{}> - <{}>".format(*format_tpl)
-    
+
     @property
     def size(self):
         """The size property."""
@@ -57,7 +58,3 @@ class Square(Rectangle):
         dict_rect["x"] = self.x
         dict_rect["y"] = self.y
         return dict_rect
-    
-    def __dict__(self):
-        """in case of using dict"""
-        return self.to_dictionary()

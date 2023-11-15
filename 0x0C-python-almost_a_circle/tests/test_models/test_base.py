@@ -3,6 +3,7 @@ from models.base import Base
 from models.rectangle import Rectangle
 import unittest
 
+
 class Test_base(unittest.TestCase):
     """
     Test the Base class
@@ -22,7 +23,6 @@ class Test_base(unittest.TestCase):
         self.assertAlmostEqual(base4.id, 4)
         self.assertAlmostEqual(base5.id, 5)
 
-    
     def test_2(self):
         """Test in case id is not None"""
         base1 = Base(1)
@@ -35,7 +35,6 @@ class Test_base(unittest.TestCase):
         self.assertAlmostEqual(base3.id, 3)
         self.assertAlmostEqual(base4.id, 4)
         self.assertAlmostEqual(base5.id, 5)
-
 
     def test_3(self):
         """Test in case id is None again"""
@@ -52,12 +51,14 @@ class Test_base(unittest.TestCase):
 
     def test_4(self):
         """Test to_json_string method"""
-        json_str = Base.to_json_string([{"key1": 1, "key2":2}, {"key1": 1, "key2":2}])
-        self.assertEqual(json_str, '[{"key1": 1, "key2": 2}, {"key1": 1, "key2": 2}]')
+        junk_l = [{"key1": 1, "key2": 2}, {"key1": 1, "key2": 2}]
+        junk_str = '[{"key1": 1, "key2": 2}, {"key1": 1, "key2": 2}]'
+        json_str = Base.to_json_string(junk_l)
+        self.assertEqual(json_str, junk_str)
         json_str = Base.to_json_string([])
         self.assertEqual(json_str, "[]")
 
     def test_5(self):
         """Test the create base method"""
-        dict_units = {"width":6, "x": 9, "y": 3, "id":69}
+        dict_units = {"width": 6, "x": 9, "y": 3, "id": 69}
         Rectangle.create(**dict_units)

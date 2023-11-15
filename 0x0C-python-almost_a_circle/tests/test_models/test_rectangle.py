@@ -1,12 +1,14 @@
 #!/usr/bin/python3
 import unittest
-from models.rectangle import Rectangle 
+from models.rectangle import Rectangle
 
 """
 
 Testing the Rectangle class
 
 """
+
+
 class Test_rectangle(unittest.TestCase):
     """Test rectange"""
 
@@ -32,7 +34,7 @@ class Test_rectangle(unittest.TestCase):
         self.assertEqual(rec.x, 0)
         self.assertEqual(rec.y, 0)
 
-    def test_4(self):   
+    def test_4(self):
         rec = Rectangle(6, 15)
         self.assertEqual(rec.width, 6)
         self.assertEqual(rec.height, 15)
@@ -79,6 +81,7 @@ class Test_rectangle(unittest.TestCase):
         R = Rectangle(8, 8)
         self.assertEqual(R.area(), 64)
 
+
 class Test_rectangle2(unittest.TestCase):
     """
 
@@ -104,12 +107,12 @@ class Test_rectangle2(unittest.TestCase):
         del self.R2
         del self.R3
         Rectangle.reset()
-    
+
     def test_1(self):
         """Test __str__"""
-        self.R1_str = "[Rectangle] (<1>) <0>/<0> - <1>/<1>" 
-        self.R2_str = "[Rectangle] (<5>) <3>/<3> - <2>/<2>" 
-        self.R3_str = "[Rectangle] (<2>) <4>/<3> - <4>/<2>" 
+        self.R1_str = "[Rectangle] (<1>) <0>/<0> - <1>/<1>"
+        self.R2_str = "[Rectangle] (<5>) <3>/<3> - <2>/<2>"
+        self.R3_str = "[Rectangle] (<2>) <4>/<3> - <4>/<2>"
         self.assertMultiLineEqual(self.R1.__str__(), self.R1_str)
         self.assertMultiLineEqual(self.R2.__str__(), self.R2_str)
         self.assertMultiLineEqual(self.R3.__str__(), self.R3_str)
@@ -141,13 +144,13 @@ class Test_rectangle2(unittest.TestCase):
         self.assertEqual(self.R2.x, 15)
         self.assertEqual(self.R2.y, 3)
         """MIx between args and kwargs"""
-        self.R1.update(1, 2, 3, 4, 5, width= 1000, id=69)
+        self.R1.update(1, 2, 3, 4, 5, width=1000, id=69)
         self.assertEqual(self.R1.width, 2)
         self.assertEqual(self.R1.id, 1)
 
     def test_4(self):
         """Test the to_dictionary method"""
-        tuple1 = {"width":2, "height":2, "x":3, "y":3, "id":5}
+        tuple1 = {"width": 2, "height": 2, "x": 3, "y": 3, "id": 5}
         self.assertDictEqual(self.R2.to_dictionary(), tuple1)
 
     def test_5(self):

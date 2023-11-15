@@ -55,11 +55,12 @@ class Base():
                 raise TypeError("Must be a list of dicts")
 
         return json.dumps(dic_list)
-    
+
     @classmethod
     def save_to_file(cls, list_objs):
         """write to json file"""
-        all_rectangles = all(type(obj).__name__ == "Rectangle" for obj in list_objs) 
+        junk_l = [type(obj).__name__ == "Rectangle" for obj in list_objs]
+        all_rectangles = all(junk_l)
         all_squares = all(type(obj).__name__ == "Square" for obj in list_objs)
         if all_squares:
             with open("Square.json", "w") as f:
@@ -72,13 +73,12 @@ class Base():
     @staticmethod
     def from_json_string(json_string):
         """Deserialize"""
-
         args_list = json.loads(json_string)
         return args_list
 
     @classmethod
     def create(cls, **dictionary):
+        """Create new instance"""
         dummy = cls(69, 5, 3, 6, 9)
         dummy.update(**dictionary)
         return dummy
-

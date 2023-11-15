@@ -130,17 +130,16 @@ rectangle/square instances")
                 dict_junk = {}
 
                 if cls.__name__ == "Rectangle":
-                    dict_junk["id"] = lst[0]
-                    dict_junk["width"] = lst[1]
-                    dict_junk["height"] = lst[2]
-                    dict_junk["x"] = lst[3]
-                    dict_junk["y"] = lst[4]
+                    dict_junk["id"] = int(lst[0])
+                    dict_junk["width"] = int(lst[1])
+                    dict_junk["height"] = int(lst[2])
+                    dict_junk["x"] = int(lst[3])
+                    dict_junk["y"] = int(lst[4])
 
                 elif cls.__name__ == "Square":
-                    dict_junk["id"] = lst[0]
-                    dict_junk["size"] = lst[1]
-                    dict_junk["x"] = lst[2]
-                    dict_junk["y"] = lst[3]
+                    dict_junk["id"] = int(lst[0])
+                    dict_junk["size"] = int(lst[1])
+                    dict_junk["x"] = int(lst[2])
+                    dict_junk["y"] = int(lst[3])
                 obj_list.append(cls.create(**dict_junk))
-
         return obj_list

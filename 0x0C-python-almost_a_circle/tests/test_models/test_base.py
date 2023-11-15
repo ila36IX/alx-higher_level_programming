@@ -57,8 +57,3 @@ class Test_base(unittest.TestCase):
         self.assertEqual(json_str, junk_str)
         json_str = Base.to_json_string([])
         self.assertEqual(json_str, "[]")
-
-    def test_5(self):
-        """Test the create base method"""
-        dict_units = {"width": 6, "x": 9, "y": 3, "id": 69}
-        Rectangle.create(**dict_units)

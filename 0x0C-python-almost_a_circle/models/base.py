@@ -79,6 +79,6 @@ class Base():
     @classmethod
     def create(cls, **dictionary):
         """Create new instance"""
-        dummy = cls(69, 5, 3, 6, 9)
+        dummy = cls(1, 1)
         dummy.update(**dictionary)
         return dummy

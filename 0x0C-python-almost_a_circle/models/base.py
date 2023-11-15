@@ -86,10 +86,16 @@ class Base():
     
     @classmethod
     def load_from_file(cls):
+        """Create list of classes from json file"""
         file_name = cls.__name__+".json"
         try:
             with open(file_name, "r") as f:
                 dict_str = f.read()
-                return cls.create(cls.from_json_string(dict_str))
+                list_dict = cls.from_json_string(dict_str)
+                list_obj = []
+                for obj in list_dict:
+                    list_obj.append(cls.create(**obj))
+                    
+                return list_obj
         except FileNotFoundError:
             return []

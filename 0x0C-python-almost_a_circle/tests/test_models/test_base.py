@@ -58,8 +58,3 @@ class Test_base(unittest.TestCase):
         self.assertEqual(json_str, junk_str)
         json_str = Base.to_json_string([])
         self.assertEqual(json_str, "[]")
-
-        # Square.create(**{ 'size': 2 }) creates a new Square instance
-    def test_5(self):
-        print(Rectangle.load_from_file())
-

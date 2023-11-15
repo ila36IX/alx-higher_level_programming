@@ -40,10 +40,13 @@ class Square(Rectangle):
         """Assigns new value to each attribute"""
 
         if len(args):
-            self.id = args[0]
-            self.size = args[1]
-            self.x = args[2]
-            self.y = args[3]
+            try:
+                self.id = args[0]
+                self.size = args[1]
+                self.x = args[2]
+                self.y = args[3]
+            except IndexError:
+                pass
         else:
             self.id = kwargs.get("id", self.id)
             self.size = kwargs.get("size", self.width)

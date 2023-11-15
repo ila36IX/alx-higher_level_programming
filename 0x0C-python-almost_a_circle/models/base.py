@@ -90,6 +90,6 @@ class Base():
         try:
             with open(file_name, "r") as f:
                 dict_str = f.read()
-                return cls.from_json_string(dict_str)
+                return cls.create(cls.from_json_string(dict_str))
         except FileNotFoundError:
             return []

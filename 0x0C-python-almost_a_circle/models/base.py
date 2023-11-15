@@ -80,5 +80,6 @@ class Base():
     def create(cls, **dictionary):
         """Create new instance"""
         dummy = cls(1, 1)
+        dummy.x = 0
         dummy.update(**dictionary)
         return dummy

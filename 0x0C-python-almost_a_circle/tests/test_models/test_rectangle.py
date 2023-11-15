@@ -107,12 +107,13 @@ class Test_rectangle2(unittest.TestCase):
         del self.R2
         del self.R3
         Rectangle.reset()
-
+    
     def test_1(self):
         """Test __str__"""
-        self.R1_str = "[Rectangle] (<1>) <0>/<0> - <1>/<1>"
-        self.R2_str = "[Rectangle] (<5>) <3>/<3> - <2>/<2>"
-        self.R3_str = "[Rectangle] (<2>) <4>/<3> - <4>/<2>"
+        self.R1_str = "[Rectangle] (1) 0/0 - 1/1"
+        self.R2_str = "[Rectangle] (5) 3/3 - 2/2"
+        self.R3_str = "[Rectangle] (2) 4/3 - 4/2"
+        self.R4 = Rectangle(10, 12)
         self.assertMultiLineEqual(self.R1.__str__(), self.R1_str)
         self.assertMultiLineEqual(self.R2.__str__(), self.R2_str)
         self.assertMultiLineEqual(self.R3.__str__(), self.R3_str)

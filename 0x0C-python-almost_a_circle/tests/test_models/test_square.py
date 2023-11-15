@@ -44,7 +44,7 @@ class TestSquare(unittest.TestCase):
 
     def test_3(self):
         """display method"""
-        self.assertEqual(self.sqr1.__str__(), "[Square] (<69>) <2>/<3> - <3>")
+        self.assertEqual(self.sqr1.__str__(), "[Square] (69) 2/3 - 3")
         self.sqr1.display()
 
     def test_3(self):

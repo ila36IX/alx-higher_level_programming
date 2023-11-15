@@ -107,7 +107,7 @@ class Rectangle(Base):
         """Reader friendly string"""
 
         format_tpl = (self.id, self.__x, self.__y, self.__width, self.__height)
-        return "[Rectangle] (<{}>) <{}>/<{}> - <{}>/<{}>".format(*format_tpl)
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(*format_tpl)
 
     def update(self, *args, **kwargs):
         """Assigns new value to each attribute"""

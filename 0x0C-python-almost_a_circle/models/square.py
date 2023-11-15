@@ -23,7 +23,7 @@ class Square(Rectangle):
         """Reader friendly string"""
 
         format_tpl = (self.id, self.x, self.y, self.width)
-        return "[Square] (<{}>) <{}>/<{}> - <{}>".format(*format_tpl)
+        return "[Square] ({}) {}/{} - {}".format(*format_tpl)
 
     @property
     def size(self):

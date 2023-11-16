@@ -4,7 +4,7 @@
 
 Unit testing is a crucial aspect of software development, ensuring that individual units or components of a program work as intended. In a large project, consider using a testing framework like `unittest` or `pytest`. Organize tests into suites, and run them regularly to catch issues early.
 
-```
+```python
 import unittest
 
 class TestFoo(unittest.TestCase):

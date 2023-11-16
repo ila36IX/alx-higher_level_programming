@@ -8,10 +8,16 @@ Manage id attribute in all your future classes
 """
 import json
 import csv
+<<<<<<< HEAD
 from turtle import Turtle,Screen
 import os
 
 class Base(Turtle):
+=======
+from turtle import Screen, Turtle
+
+class Base():
+>>>>>>> 7a54f0d74ad61ed6f4409955567b0c067c96a6bf
     """
     The Base class
     args:
@@ -147,6 +153,7 @@ rectangle/square instances")
         return obj_list
     
     @staticmethod
+<<<<<<< HEAD
     def draw():
         if os.environ.get('DISPLAY','') == '':
             print('no display found. Using :0.0')
@@ -162,3 +169,35 @@ rectangle/square instances")
         screen.mainloop()
 
 Base.draw()
+=======
+    def draw(list_rectangles, list_squares):
+        screen = Screen()
+        tim = Turtle()
+        tim.pu()
+        for rectangle in list_rectangles:
+            tim.goto(rectangle.x, rectangle.y)
+            tim.pd()
+            tim.fd(rectangle.width)
+            tim.rt(90)
+            tim.fd(rectangle.height)
+            tim.rt(90)
+            tim.fd(rectangle.width)
+            tim.rt(90)
+            tim.fd(rectangle.height)
+            tim.rt(90)
+            tim.up()
+        for square in list_squares:
+            tim.goto(square.x, square.y)
+            tim.pd()
+            tim.fd(square.size)
+            tim.rt(90)
+            tim.fd(square.size)
+            tim.rt(90)
+            tim.fd(square.size)
+            tim.rt(90)
+            tim.fd(square.size)
+            tim.rt(90)
+            tim.up()
+
+        screen.mainloop()
+>>>>>>> 7a54f0d74ad61ed6f4409955567b0c067c96a6bf

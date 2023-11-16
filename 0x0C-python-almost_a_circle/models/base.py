@@ -8,9 +8,10 @@ Manage id attribute in all your future classes
 """
 import json
 import csv
+from turtle import Turtle,Screen
+import os
 
-
-class Base():
+class Base(Turtle):
     """
     The Base class
     args:
@@ -21,6 +22,7 @@ class Base():
 
     def __init__(self, id=None):
         """Constructor"""
+        super().__init__()
         if id is not None:
             self.id = id
         else:
@@ -143,3 +145,20 @@ rectangle/square instances")
                     dict_junk["y"] = int(lst[3])
                 obj_list.append(cls.create(**dict_junk))
         return obj_list
+    
+    @staticmethod
+    def draw():
+        if os.environ.get('DISPLAY','') == '':
+            print('no display found. Using :0.0')
+            os.environ.__setitem__('DISPLAY', ':0.0')
+        turtle = Turtle()
+        turtle.up()
+        turtle.speed(speed)
+        turtle.shape("circle")
+        turtle.shapesize(0.6,0.6)
+        turtle.color("white")
+        screen=Screen()
+        screen.setup(width=1035,height=535)
+        screen.mainloop()
+
+Base.draw()

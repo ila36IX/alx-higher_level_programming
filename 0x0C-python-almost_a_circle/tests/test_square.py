@@ -106,5 +106,4 @@ class TestSquare(unittest.TestCase):
 
     def test_8(self):
         """Test the write to csv function"""
-        Square.save_to_file_csv([self.sqr1, self.sqr2, self.sqr3]) 
-        
+        Square.save_to_file_csv([self.sqr1, self.sqr2, self.sqr3])

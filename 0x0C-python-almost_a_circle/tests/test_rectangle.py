@@ -109,7 +109,7 @@ class Test_rectangle2(unittest.TestCase):
         del self.R2
         del self.R3
         Rectangle.reset()
-    
+
     def test_1(self):
         """Test __str__"""
         self.R1_str = "[Rectangle] (1) 0/0 - 1/1"
@@ -145,7 +145,6 @@ class Test_rectangle2(unittest.TestCase):
 
     def test_3(self):
         """R1 with kwargs"""
-        # self.R2 = Rectangle(2, 2, 3, 3, 5)
         self.R2.update(width=6, x=15)
         self.assertEqual(self.R2.id, 5)
         self.assertEqual(self.R2.width, 6)
@@ -171,29 +170,23 @@ class Test_rectangle2(unittest.TestCase):
         Rectangle.save_to_file(rect_list)
 
     def test_6(self):
-        junk = Rectangle.create(**{ 'id': 89 })
+        junk = Rectangle.create(**{'id': 89})
         self.assertEqual(junk.id, 89)
-        junk = Rectangle.create(**{ 'id': 89, 'width': 1 })
+        junk = Rectangle.create(**{'id': 89, 'width': 1})
         self.assertEqual(junk.id, 89)
         self.assertEqual(junk.width, 1)
-        junk = Rectangle.create(**{ 'id': 89, 'width': 1, 'height': 2 })
+        junk = Rectangle.create(**{'id': 89, 'width': 1, 'height': 2})
         self.assertEqual(junk.id, 89)
         self.assertEqual(junk.width, 1)
         self.assertEqual(junk.height, 2)
-        junk = Rectangle.create(**{ 'id': 89, 'width': 1, 'height': 2, 'x': 3 })
+        junk = Rectangle.create(**{'id': 89, 'width': 1, 'height': 2, 'x': 3})
         self.assertEqual(junk.id, 89)
         self.assertEqual(junk.width, 1)
         self.assertEqual(junk.height, 2)
         self.assertEqual(junk.x, 3)
-        junk = Rectangle.create(**{ 'id': 89, 'width': 1, 'height': 2, 'x': 3, 'y': 4 })
-        self.assertEqual(junk.y, 4) 
-    
+        junk = Rectangle.create(**{'id': 89, 'width': 1, 'height': 2, 'x': 3, 'y': 4})
+        self.assertEqual(junk.y, 4)
+
     def test_7(self):
         """Test writing to csv file"""
-        Rectangle.save_to_file_csv([self.R1, self.R2, self.R4]) 
-    
-    def test_8(self):
-        """Read from csv file"""
-        lll = Rectangle.load_from_file_csv()
-        for l in lll:
-            print(l)
+        Rectangle.save_to_file_csv([self.R1, self.R2, self.R4])

@@ -8,7 +8,7 @@ Manage id attribute in all your future classes
 """
 import json
 import csv
-
+from turtle import Screen, Turtle
 
 class Base():
     """
@@ -143,3 +143,35 @@ rectangle/square instances")
                     dict_junk["y"] = int(lst[3])
                 obj_list.append(cls.create(**dict_junk))
         return obj_list
+    
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        screen = Screen()
+        tim = Turtle()
+        tim.pu()
+        for rectangle in list_rectangles:
+            tim.goto(rectangle.x, rectangle.y)
+            tim.pd()
+            tim.fd(rectangle.width)
+            tim.rt(90)
+            tim.fd(rectangle.height)
+            tim.rt(90)
+            tim.fd(rectangle.width)
+            tim.rt(90)
+            tim.fd(rectangle.height)
+            tim.rt(90)
+            tim.up()
+        for square in list_squares:
+            tim.goto(square.x, square.y)
+            tim.pd()
+            tim.fd(square.size)
+            tim.rt(90)
+            tim.fd(square.size)
+            tim.rt(90)
+            tim.fd(square.size)
+            tim.rt(90)
+            tim.fd(square.size)
+            tim.rt(90)
+            tim.up()
+
+        screen.mainloop()

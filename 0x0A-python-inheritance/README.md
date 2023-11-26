@@ -1,46 +1,94 @@
 # Python - Inheritance
 ![](https://media.tenor.com/1SwdfIZZkx4AAAAd/wes-dst.gif)
 
-## Concepts Covered:
 
-### 1. Class:
-- A blueprint or prototype for creating objects.
-- Contains attributes (variables) and methods (functions).
+# Understanding `setattr`, `getattr`, `__eq__`, and `__ne__` in Python
 
-### 2. Objects:
-- Entities with state, behavior, and identity.
-- Instances of a class.
+## `setattr` and `getattr`
 
-### 3. Polymorphism:
-- Having many forms.
-- Classes can provide different implementations of methods.
+### `setattr`:
 
-### 4. Encapsulation:
-- Wrapping data and methods into a single unit (class).
-- Restricts direct access to variables, promoting data integrity.
+- **Syntax:** `setattr(object, name, value)`
 
-### 5. Inheritance:
-- Capability of a class to derive properties from another class.
-- Supports code reusability and the representation of real-world relationships.
+- **Usage:**
+  - Sets the attribute with the given name on the specified object.
+  - Useful for dynamically adding attributes during runtime.
 
-### 6. Data Abstraction:
-- Hides unnecessary code details from the user.
-- Achieved through abstract classes.
-
-## Examples:
-
-- **Class Definition:**
+- **Example:**
   ```python
-  class Dog:
-      pass
+  setattr(obj, 'new_attribute', 42)
   ```
 
-- **Object Creation:**
+### `getattr`:
+
+- **Syntax:** `getattr(object, name[, default])`
+
+- **Usage:**
+  - Gets the value of the attribute with the given name from the specified object.
+  - Allows optional default value if the attribute is not found.
+
+- **Example:**
   ```python
-  obj = Dog()
+  value = getattr(obj, 'existing_attribute', default_value)
   ```
 
-- **Inheritance:**
+## `__eq__` and `__ne__`
+
+### Introduction:
+
+In Python, `__eq__` and `__ne__` are special methods that define the behavior of equality and inequality comparisons for objects.
+
+### `__eq__` (Equal):
+
+- **Purpose:**
+  - Defines the behavior of the equality operator `==`.
+
+- **Usage:**
+  - Override this method to customize how instances of a class are compared for equality.
+
+- **Example:**
+  ```python
+  def __eq__(self, other):
+      return self.attribute == other.attribute
+  ```
+
+### `__ne__` (Not Equal):
+
+- **Purpose:**
+  - Defines the behavior of the inequality operator `!=`.
+
+- **Usage:**
+  - Override this method to customize how instances of a class are compared for inequality.
+
+- **Example:**
+  ```python
+  def __ne__(self, other):
+      return self.attribute != other.attribute
+  ```
+
+## `__slots__`
+
+### Introduction:
+
+In Python, `__slots__` is a class variable that restricts the attributes a class can have, providing memory efficiency.
+
+### `__slots__`:
+
+- **Purpose:**
+  - Defines a tuple of attribute names that are allowed for instances of a class.
+
+- **Usage:**
+  - Limits the attributes a class instance can have to those specified in `__slots__`.
+  - Improves memory usage compared to dynamically adding attributes.
+
+- **Example:**
+  ```python
+  class MyClass:
+      __slots__ = ('attribute1', 'attribute2')
+  ```
+
+## **Inheritance:**
+
   ```python
   class Person:
       # ...

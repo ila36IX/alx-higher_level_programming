@@ -19,12 +19,13 @@ class BaseGeometry:
         """Check the value type"""
 
         if type(value) is not int:
-            raise TypeError("<name> must be an integer")
+            raise TypeError("{} must be an integer".format(name))
         if value <= 0:
-            raise ValueError("<name> must be greater than 0")
+            raise ValueError("{} must be greater than 0".format)
 
 
 class Rectangle(BaseGeometry):
+    """The rectangle class"""
     def __init__(self, width, height):
         """Constructor"""
 

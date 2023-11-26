@@ -5,7 +5,6 @@
 MyList that inherits from list
 
 """
-import doctest
 
 
 class MyList(list):

@@ -2,9 +2,7 @@
 ![](https://media.tenor.com/1SwdfIZZkx4AAAAd/wes-dst.gif)
 
 
-# Understanding `setattr`, `getattr`, `__eq__`, and `__ne__` in Python
-
-## `setattr` and `getattr`
+# Attributes Function
 
 ### `setattr`:
 
@@ -30,7 +28,26 @@
 - **Example:**
   ```python
   value = getattr(obj, 'existing_attribute', default_value)
+
   ```
+### `hasattr`:
+
+- **Syntax:** `hasattr(object, attribute)`
+
+- **Usage:**
+  - The hasattr() function returns True if the specified object has the specified attribute, otherwise False.
+
+- **Example:**
+  ```python
+  x = hasattr(Person, 'age')
+
+  ```
+#### Note
+> An instance with the attribute **__dict__** means that it can take other attibutes using **setattr**, so to check whether you can add a new attribute to an object before attempting to do so, you can do it with this way:
+```py
+if hasattr(obj, "__dict__"):
+  # New you have the right to add as many attrs as you wont
+```
 
 ## `__eq__` and `__ne__`
 

@@ -5,7 +5,6 @@
 Empty class
 
 """
-import doctest
 
 
 class BaseGeometry:

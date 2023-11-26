@@ -17,7 +17,3 @@ class MyList(list):
     def print_sorted(self):
         """Print the sorted list"""
         print(sorted(self))
-
-
-if __name__ == "__main__":
-    doctest.testfile("./tests/1-my_list.txt")

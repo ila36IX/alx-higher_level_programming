@@ -86,4 +86,3 @@
       def abstract_method(self):
           pass
   ```
-  

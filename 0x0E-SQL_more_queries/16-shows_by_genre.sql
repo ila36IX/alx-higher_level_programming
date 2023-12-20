@@ -6,5 +6,5 @@ SELECT ts.title AS title, tg.name AS name
        ON tg.id = tsg.genre_id
        RIGHT JOIN tv_shows AS ts
        ON ts.id = tsg.show_id
- ORDER BY title;
+ ORDER BY title, name;
 

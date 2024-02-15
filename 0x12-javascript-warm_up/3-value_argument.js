@@ -11,5 +11,5 @@ argv.forEach(elem => {
 if (lengthOfArgv <= 2) {
   console.log('No argument');
 } else {
-  argv.slice(2).forEach((elem) => console.log(elem));
+  console.log(argv[2]);
 }

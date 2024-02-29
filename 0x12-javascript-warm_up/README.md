@@ -1,2 +1,0 @@
-# JaveScript overview
-Testing

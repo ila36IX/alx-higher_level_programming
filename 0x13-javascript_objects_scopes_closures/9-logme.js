@@ -2,7 +2,7 @@
 
 let init = 0;
 
-exports.logMe = function(item) {
+exports.logMe = function (item) {
   console.log(`${init}: ${item}`);
   init++;
-}
+};

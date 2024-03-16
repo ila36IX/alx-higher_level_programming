@@ -3,11 +3,22 @@
 """
 
 testing
+testing
+testing
+testing
 
 """
 import sys, MySQLdb
 
 if __name__ == "__main__":
+    """
+
+    testing
+    testing
+    testing
+    testing
+
+    """
     username = sys.argv[1]
     password = sys.argv[2]
     db_name = sys.argv[3]

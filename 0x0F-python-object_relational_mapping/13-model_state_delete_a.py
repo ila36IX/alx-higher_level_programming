@@ -20,8 +20,8 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    states_to_delete = session.query(State)
-    .filter(State.name.like("%a%"))
-    .delete()
+    states_to_delete = session.query(State).\
+        filter(State.name.like("%a%")).\
+        delete()
 
     session.commit()

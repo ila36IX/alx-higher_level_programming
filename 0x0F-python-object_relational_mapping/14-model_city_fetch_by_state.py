@@ -1,6 +1,12 @@
 #!/usr/bin/python3
 
-import sys
+"""
+
+sqlalchemy
+
+"""
+
+from sys import argv
 from model_state import Base, State 
 from model_city import City
 from sqlalchemy.orm import sessionmaker

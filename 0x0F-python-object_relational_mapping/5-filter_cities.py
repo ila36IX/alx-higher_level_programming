@@ -7,7 +7,7 @@ based on name argument.
 
 """
 
-import sys
+from sys import argv
 import MySQLdb
 
 if __name__ == "__main__":
@@ -31,6 +31,7 @@ if __name__ == "__main__":
                                              WHERE s.name = %s
                                           ORDER BY c.id
                                           """, (searched, ))
-
+    print_str = ""
     for row in c.fetchall():
-        print(row)
+        print_str += row[1] + ", "
+    print(print_str[:-2])

@@ -11,10 +11,10 @@ import sys
 import MySQLdb
 
 if __name__ == "__main__":
-    username = sys.argv[1]
-    password = sys.argv[2]
-    db_name = sys.argv[3]
-    searched = sys.argv[4]
+    username = argv[1]
+    password = argv[2]
+    db_name = argv[3]
+    searched = argv[4]
 
     db = MySQLdb.connect(host="localhost",
                          user=username,

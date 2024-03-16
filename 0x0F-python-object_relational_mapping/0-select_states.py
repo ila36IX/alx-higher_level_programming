@@ -8,7 +8,8 @@ testing
 testing
 
 """
-import sys, MySQLdb
+import sys
+import MySQLdb
 
 if __name__ == "__main__":
     """
@@ -23,12 +24,11 @@ if __name__ == "__main__":
     password = sys.argv[2]
     db_name = sys.argv[3]
 
-    db = MySQLdb.connect(host="localhost", 
-                         user=username, 
-                         passwd=password, 
-                         db=db_name, 
-                         port=3306
-                    )
+    db = MySQLdb.connect(host="localhost",
+                         user=username,
+                         passwd=password,
+                         db=db_name,
+                         port=3306)
     c = db.cursor()
     c.execute("SELECT * FROM states ORDER BY id")
 

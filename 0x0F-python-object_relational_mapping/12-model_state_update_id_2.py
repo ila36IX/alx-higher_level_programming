@@ -6,7 +6,7 @@ Changes the name of a State object from
 the database hbtn_0e_6_usa
 
 """
-import sys import argv
+from sys import argv
 from model_state import Base, State
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine

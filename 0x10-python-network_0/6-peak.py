@@ -8,14 +8,13 @@ def find_peak(list_of_integers):
     num = list_of_integers
     l, r = 0, len(list_of_integers) - 1
     while l <= r:
-        m = l + (r - l) // 2
-        if m > 0 and num[m - 1] > num[m]:
+        m = l + ((r - l + 1) // 2)
+        if m > 0 and num[m - 1] >= num[m]:
             r = m - 1
         elif m < len(num) - 1 and num[m] < num[m + 1]:
             l = m + 1
         else:
             return num[m]
-            
 
 
 print(find_peak([1, 2, 4, 6, 3]))

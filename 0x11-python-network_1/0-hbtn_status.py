@@ -1,6 +1,7 @@
 #!/usr/bin/python3
-
-# featch a website
+"""
+featch a website
+"""
 from urllib.request import urlopen
 
 if __name__ == "__main__":

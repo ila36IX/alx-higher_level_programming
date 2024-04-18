@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-# etches https://alx-intranet.hbtn.io/status
+"""
+Fetches https://alx-intranet.hbtn.io/status
+"""
 import requests
 
 r = requests.get("https://alx-intranet.hbtn.io/status")

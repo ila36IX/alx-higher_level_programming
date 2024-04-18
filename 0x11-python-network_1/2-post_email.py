@@ -12,5 +12,5 @@ from urllib.parse import urlencode
 if __name__ == "__main__":
     link = argv[1]
     parameter = urlencode({"email": argv[2]})
-    with urlopen(url, parameter) as response:
+    with urlopen(link, parameter) as response:
         response = response.read().encode("utf-8")

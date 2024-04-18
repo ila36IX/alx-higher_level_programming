@@ -21,4 +21,5 @@ if __name__ == "__main__":
     r = requests.get(url, headers=headers)
     response_json = r.json()
     for commit in response_json[:10]:
-        print(f"{commit.get('sha')}:", commit.get("commit").get("author").get("name"))
+        commit_author_name = commit.get("commit").get("author").get("name")
+        print(f"{commit.get('sha')}:", commit_author_name)

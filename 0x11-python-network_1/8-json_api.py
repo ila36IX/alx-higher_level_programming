@@ -12,7 +12,7 @@ if __name__ == "__main__":
 
     if len(argv) == 2:
         post_letter = argv[2]
-    r = requests.get("http://0.0.0.0:5000/search_user", header={q:post_letter})
+    r = requests.get("http://0.0.0.0:5000/search_user", header={"q": post_letter})
 
     try:
         json_r = r.json()

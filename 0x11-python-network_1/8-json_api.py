@@ -12,13 +12,12 @@ if __name__ == "__main__":
 
     if len(argv) == 2:
         post_letter = argv[2]
-    r = requests.get("http://0.0.0.0:5000/search_user")
+    r = requests.get("http://0.0.0.0:5000/search_user", data={q:post_letter})
 
     try:
         json_r = r.json()
     except expression as e:
-        json_r = {}
-        print("No result")
+        print("Not a valid JSON")
 
     if len(json_r) == 0:
         print("No result")

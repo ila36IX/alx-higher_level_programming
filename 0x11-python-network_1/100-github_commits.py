@@ -18,7 +18,7 @@ if __name__ == "__main__":
         "Accept": "application/vnd.github+json",
         "X-GitHub-Api-Version": "2022-11-28",
     }
-    r = requests.get(url, data=headers)
+    r = requests.get(url, headers=headers)
     response_json = r.json()
     for commit in response_json[:10]:
         print(f"{commit.get('sha')}:", commit.get("commit").get("author").get("name"))

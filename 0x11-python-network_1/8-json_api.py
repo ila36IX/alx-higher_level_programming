@@ -21,5 +21,5 @@ if __name__ == "__main__":
             print("No result")
         else:
             print(f"[{json_r.get('id')}] {json_r.get('name')}")
-    except Expression as e:
+    except Exception as e:
         print("Not a valid JSON")

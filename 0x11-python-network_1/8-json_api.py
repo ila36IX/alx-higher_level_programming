@@ -12,13 +12,14 @@ if __name__ == "__main__":
 
     if len(argv) == 2:
         post_letter = argv[1]
-    r = requests.post("http://0.0.0.0:5000/search_user", data={"q": post_letter})
+    url = "http://0.0.0.0:5000/search_user"
+    r = requests.post(url, data={"q": post_letter})
 
     try:
         json_r = r.json()
         if len(json_r) == 0:
             print("No result")
         else:
-                print(f"[{json_r.get('id')}] {json_r.get('name')}")
-    except expression as e:
+            print(f"[{json_r.get('id')}] {json_r.get('name')}")
+    except Expression as e:
         print("Not a valid JSON")

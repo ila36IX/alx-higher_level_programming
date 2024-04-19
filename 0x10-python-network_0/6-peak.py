@@ -4,6 +4,7 @@ Finds a peak in a list of unsorted integers
 """
 
 def find_peak(list_of_integers):
+    """Using binary algorithm"""
     if type(list_of_integers) is not list:
         return None
     if len(list_of_integers) == 0:

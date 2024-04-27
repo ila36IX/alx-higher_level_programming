@@ -11,7 +11,6 @@ from sqlalchemy.orm import declarative_base
 
 Base = declarative_base()
 
-
 class City(Base):
     """
     The City class will abstract the implementation of City table
